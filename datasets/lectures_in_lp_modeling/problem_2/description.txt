@@ -1,0 +1,30 @@
+PROBLEM TYPE: MIP
+PROBLEM INFO:
+
+- The knapsack problem has a significant place in the study of integer programming models with binary variables. 
+- In the knapsack problem, one needs to pack a set of items in a container.
+- Each item \var{k} has value \var{value_{k}} and size \var{size_{k}}.
+- And the container has maximum capacity \var{C}. 
+- If the total size of the items exceeds the capacity, we can't pack them all. 
+- In that case, the problem is to choose a subset of the items of maximum total value that will fit in the container. 
+
+INPUT FORMAT:
+
+{
+	"C": C,
+	"value": [value_{k} for k in 1,...,K],
+	"size": [size_{k} for k in 1,...,K]
+}
+
+
+OBJECTIVE: Maximize the total value of the packed items
+
+OUTPUT INFO:
+
+- \var{isincluded} represents whether each item is included in the container
+
+OUTPUT FORMAT:
+
+{
+	"isincluded": [isincluded_{k} for k in 1,...,K]
+}

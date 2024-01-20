@@ -1,0 +1,12 @@
+{
+	"n_steel_quant": 1000,
+	"mn_percent": 0.45,
+	"si_min": 3.25,
+	"si_max": 5.0,
+	"contsi": [4.0, 1.0, 0.6],
+	"contmn": [0.45, 0.50, 0.40],
+	"mang_price": 8.0,
+	"cost": [21, 25, 15],
+	"sell_price": 0.45,
+	"melt_price": 0.005
+}

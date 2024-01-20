@@ -1,0 +1,41 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A foundry receives a specific order for \var{n_steel_quant} tons of steel. 
+- This steel must meet the following characteristics: it must contain at least \var{mn_percent} percentage of manganese (Mn) while its percentage of silicon (SI) must be between \var{si_min} and \var{si_max}.
+- To cast this steel, the foundry has limited quantities of several types of minerals.
+- The contents expressed in percentage per mineral \var{k} are \var{contsi_{k}} for Si and \var{contmn_{k}} for Mn.
+- The process for producing steel is such that direct addition of Mn is possible.
+- This Manganese is available at a price of \var{mang_price} million euros per ton. 
+- As for the minerals, it costs \var{cost_{k}} million euros per thousand tons for mineral \var{k}.
+- The foundry plans to sell the steel produced at \var{sell_price} million euros per ton.
+- The cost of smelting a ton of mineral is \var{melt_price} million euros.
+
+INPUT FORMAT:
+
+{
+	"n_steel_quant": n_steel_quant,
+	"mn_percent": mn_percent,
+	"si_min": si_min,
+	"si_max": si_max,
+	"contsi": [contsi_{k} for k in 1,...,K]
+	"contmn": [contmn_{k} for k in 1,...,K]
+	"mang_price": mang_price,
+	"cost": [cost_{k} for k in 1,...,K]
+	"sell_price": sell_price,
+	"melt_price": melt_price
+}
+
+OBJECTIVE: How should the manufacture manage the steel to maximize profit?
+
+OUTPUT INFO:
+
+- \var{amount} represents the amount of each mineral melted
+- \var{num_mang} represents the amount of Manganese directly added
+
+OUTPUT FORMAT:
+
+{
+	"amount": [amount_{k} for k in 1,...,K]
+	"num_mang": [num_mang]
+}

@@ -1,0 +1,31 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- An Italian transport company must send empty containers from its depots to ports. 
+- The number of containers available in the depot \var{i} is denoted with \var{numdepot_i}. 
+- Container requirement in port \var{j} is \var{numport_{j}}. 
+- Transport of containers is by barges. 
+- Each barge can only contain two containers and the cost of transport (per barge) is proportional to the distance traveled (price is \var{price} Euros/km).
+- The distances between depot \var{i} and port \var{j} is \var{distance_{i, j}}.
+
+INPUT FORMAT:
+
+{
+	"numdepot": [numdepot_{i} for i in 1,...,I],
+	"numport": [numport_{j} for j in 1,...,J],
+	"price": price,
+	"distance": [[distance_{i, j} for i in 1,...I] for j in 1,...,J]
+}
+
+
+OBJECTIVE: Minimize the total transportation cost.
+
+OUTPUT INFO:
+
+\var{number} represents the number of containers sent from each depot to port
+
+OUTPUT FORMAT:
+
+{
+	"number": [[number_{i, j} for i in 1,...,I] for j in 1,...,J]
+}

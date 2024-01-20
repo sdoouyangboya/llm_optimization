@@ -1,0 +1,28 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- We suppose that some products can be produced, each of them passing through several stages.
+- Necessary time to produce 1 unit of product \var{k} is \var{produce_time_{k, s}} hours for stage \var{s}.
+- Availability in working hours is \var{time_{s}} for stage \var{s}. 
+- The unitary profits for product \var{k} is \var{profit_{k}}.
+
+INPUT FORMAT:
+
+{
+	"produce_time": [[produce_time_{k, s} for s in 1,...,S] for k in 1,...,K],
+	"available_time": [time_{s} for s in 1,...,S],
+	"profit": [profit_{k} for k in 1,...,K]
+}
+
+
+OBJECTIVE: Determine the quantities to be produced such that all the production constraints are satisfied and the profit is maximized.
+
+OUTPUT INFO:
+
+- \var{quantity} represents the production quantity for each product
+
+OUTPUT FORMAT:
+
+{
+	"quantity": [quantity_{k} for k in 1,...,K]
+}

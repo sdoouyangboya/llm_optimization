@@ -1,0 +1,44 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+
+- A company produces and sells \var{P} different products. 
+- The demand for each product is unlimited, but the company is constrained by cash availability and machine capacity.
+- Each unit of the \var{i}-th product requires \var{hour_i} machine hours.
+- There are \var{availableHours} machine hours available in the current production period.
+- The production costs are \var{cost_i} per unit of the \var{i}-th product.
+- The selling prices of the \var{i}-th product is \var{price_i} per unit.
+- The available cash is \var{cash}.
+- Furthermore, \var{investRate_i} of the sales revenues from the \var{i}-th product will be made available to finance operations during the current period.
+- \var{investPercentage_i} is a number between 0 and 1
+- The company could increase its available machine hours by \var{upgradeHours}, after spending \var{upgradeCost} for certain repairs. 
+- The net income from each product is the revenue we get from selling it minus the production cost and the investment cost.
+
+INPUT FORMAT:
+
+{
+    "cash": cash,
+    "hour": [hour_i for i in 1, ..., P],
+    "cost": [cost_i for i in 1, ..., P],
+    "price": [price_i for i in 1, ..., P],
+    "investPercentage": [investPercentage_i for i in 1, ..., P],
+    "upgradeHours": upgradeHours,   
+    "upgradeCost": upgradeCost,
+    "availableHours": availableHours,
+}
+
+OBJECTIVE: We are aiming at maximizing total net income subject to the cash availability and machine capacity limitations
+
+OUTPUT INFO:
+
+- \var{net_income} shows the net income of the company
+- \var{production_i} shows the production quantity of the \var{i}-th product
+- \var{upgrade} is a boolean variable that shows whether the company should upgrade its machine capacity or not
+
+OUTPUT FORMAT:
+
+{
+    "net_income": net_income,
+    "production": [production_i for i in 1, ..., P],
+    "upgrade": true/false,
+}

@@ -1,0 +1,37 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+
+- Suppose that \var{Z} is a random variable taking values 0, 1, ..., \var{K}, with probabilities var{p_0}, \var{p_1}, ..., \var{p_K}, respectively.
+- We are given the values of the first two moments:
+
+E[\var{Z}] = \sum_{k=0}^{\var{K}} k \var{p_k} 
+E[\var{Z}^2] = \sum_{k=0}^{\var{K}} k^2 \var{p_k} of \var{Z} 
+
+- We would like to obtain upper and lower bounds on the value of the fourth moment 
+
+E[\var{Z}_4] = \sum_{k=0}^{K} k^4 \var{p_k} of \var{Z}
+
+Show how linear programming can be used to approach this problem. 				
+
+INPUT FORMAT: 
+
+{
+    "K": K,
+    "p": [p_i for i in 0, ..., K]
+    "E[Z]": E[Z],
+    "E[Z^2]": E[Z^2],
+}
+
+OBJECTIVE: Use linear programming to find lower and upper bounds on E[Z^4].
+
+OUTPUT INFO:
+
+- The lower and upper bounds on E[Z^4] should be stored in the variables lower_bound and upper_bound, respectively.
+
+OUTPUT FORMAT:
+
+{
+    "lower_bound": lower_bound,
+    "upper_bound": upper_bound,
+}

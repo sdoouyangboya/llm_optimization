@@ -1,0 +1,54 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A company is undergoing a number of changes that will affect its manpower requirements in future years. 
+- Owing to the installation of new machinery, fewer unskilled but more skilled and semi-skilled workers will be required. 
+- In addition to this, a downturn in trade is expected in the next year, which will reduce the need for workers in all categories.
+- The estimated manpower requirements for manpower \var{k} in year \var{i} is \var{requirement_{k, i}}.
+- The current strength of manpower \var{k} is \var{strength_{k}}.
+- The company wishes to decide its policy with regard to recruitment, retraining, redundancy and short-time working in the next years.
+- There is a natural wastage of labour. 
+- A fairly large number of workers leave during their first year. After this, the rate is much smaller. 
+- Taking this into account, the wastage rates of \var{k} manpower with less than one year's service is \var{lessonewaste_{k}}.
+- The wastage rates of \var{k} manpower with more than one year's service is \var{moreonewaste_{k}}.
+- There has been no recent recruitment and all workers in the current labour force have been employed for more than one year.
+- It is possible to recruit a limited number of workers from outside. 
+- In any one year, the numbers that can be recruited in manpower \var{k} is \var{recruit_{k}}.
+- The redundancy payment to manpower \var{k} is \var{costredundancy_{k}}.
+- It is possible to employ up to \var{num_overman} more workers over the whole company than are needed, but the extra costs per employee per year is \var{costoverman_{k}} for manpower \var{k}.
+- Up to \var{num_shortwork} workers in each category of skill can be put on short-time working. 
+- The cost of this (per employee per year) is \var{costshort_{k}} for manpower \var{k}.
+- An employee on short-time working meets the production requirements of half a full-time employee.
+
+
+INPUT FORMAT:
+
+{
+    "requirement": [[requirement_{k, i} for i in 1,...,I] for k in 1,...,K],
+    "strength": [strength_{k} for k in 1,...,K],
+    "lessonewaste": [lessonewaste_{k} for k in 1,...,K],
+    "moreonewaste": [lessonewaste_{k} for k in 1,...,K],
+    "recruit": [recruit_{k} for k in 1,...,K],
+    "costredundancy": [costredundancy_{k} for k in 1,...,K],
+    "num_overman": num_overman,
+    "costoverman": [costoverman_{k} for k in 1,...,K],
+    "num_shortwork": num_shortwork
+    "costshort": [costshort_{k} for k in 1,...,K],
+}
+
+
+OBJECTIVE: The company’s declared objective is to minimize costs. How should they operate in order to do this?
+
+OUTPUT INFO:
+
+- \var{recruit} represents the number of each recruit manpower to employ each year
+- \var{overmanning} represents the number of each overmanning manpower to employ each year
+- \var{short} represents the number of each short-time manpower to employ each year
+
+OUTPUT FORMAT:
+
+{
+    "recruit": [[recruit_{k, i} for i in 1,...,I] for k in 1,...,K],
+    "overmanning": [[overmanning_{k, i} for i in 1,...,I] for k in 1,...,K],
+    "short": [[short_{k, i} for i in 1,...,I] for k in 1,...,K]
+}

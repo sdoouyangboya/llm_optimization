@@ -1,0 +1,28 @@
+{
+    "buy_price":[
+        [110, 120, 130, 110, 115],
+        [130, 130, 110, 90, 115],
+        [110, 140, 130, 100, 95],
+        [120, 110, 120, 120, 125],
+        [100, 120, 150, 110, 105],
+        [90, 100, 140, 80, 135]
+    ],
+    "sell_price": 150,
+    "is_vegetable": [true, true, false, false, false],
+    "max_vegetable_refining_per_month": 200,
+    "max_non_vegetable_refining_per_month": 250,
+    "storage_size": 1000,
+    "storage_cost": 5,
+    "min_hardness": 3,
+    "max_hardness": 6,
+    "hardness": [8.8, 6.1, 2.0, 4.2, 5.0],
+    "init_amount": 500,
+    "min_usage": 20,
+    "dependencies": [
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ]
+}

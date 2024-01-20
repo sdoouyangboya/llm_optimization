@@ -1,0 +1,27 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A quantity y is known to depend on another quantity x. A set of corresponding values has been collected for x and y and is presented.
+- The \var{k}-th y value takes \var{y_{k}} and the \var{k}-th x value takes \var{x_{k}}.
+
+INPUT FORMAT:
+
+{
+    "y": [y_{k} for k = 1,...,K],
+    "x": [x_{k} for k = 1,...,K]
+}
+
+
+OBJECTIVE: Fit the ‘best’ straight line y = bx + a where the objective is to minimize the maximum deviation of all the observed values of y from the value predicted by the linear relationship.
+
+OUTPUT INFO:
+
+- \var{intercept} represents the intercept of the fitted line
+- \var{slope} represents the slope of the fitted line
+
+OUTPUT FORMAT:
+
+{
+    "intercept": intercept,
+    "slope": slope
+}

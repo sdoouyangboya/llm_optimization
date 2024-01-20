@@ -1,0 +1,30 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A manufacturer wishes to produce \var{alloy_quant} lb of an alloy that consists of several kinds of metals.
+- And by weight, the alloy we want contains a target quantity\var{target_{m}} of metal \var{metal_{m}}.
+- Several other kinds of alloys are available at various prices. 
+- These alloys can be melted to get the alloy we want.
+- Alloy \var{k} has \var{ratio_{k, m}} ratio of \var{metal_{m}} and is sold at price of \var{price_k}.
+- Ratio \var{ratio_{k, m}} ranges between 0 and 1.0 and should be properly treated in optimization
+
+INPUT FORMAT:
+
+{
+	"alloy_quant": alloy_quant,
+	"target": [target_{m} for m in 1,...,M],
+	"ratio": [[ratio_{k, m} for m in 1,...,M] for k = 1,...,K],
+	"price": [price_{k} for k in 1,...,K]
+}
+
+OBJECTIVE: The manufacturer wishes to find the amounts of the various alloys needed and to determine the cheapest combination.
+
+OUTPUT INFO:
+
+- \var{amount} represents the quantity of each alloy we buy
+
+OUTPUT FORMAT:
+
+{
+	"amount": [amount_{k} for k in 1,...,K]
+}

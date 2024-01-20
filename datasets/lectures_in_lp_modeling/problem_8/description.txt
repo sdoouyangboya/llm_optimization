@@ -1,0 +1,29 @@
+PROBLEM TYPE: LP or MILP
+PROBLEM INFO:
+
+- To operate a cafeteria, the manager must ensure on-call duty based on the statistics on the required staff. 
+- In the future days, the number of desired employees on day \var{n} is denoted with \var{num_{n}}.
+- Each employee works \var{n_working_days} days in a row and then has \var{n_resting_days} days off.
+
+INPUT FORMAT:
+
+{
+	"num": [num_{n} for n in 1,...,N],
+	"n_working_days": n_working_days,
+	"n_resting_days": n_resting_days
+}
+
+
+OBJECTIVE: Calculate the minimum number of employees to hire
+
+OUTPUT INFO:
+
+- \var{total_number} represents the total number of employees to employ
+- \var{is_work} represents whether employee is working a rest on each day. Its length is determined by \var{total_number}
+
+OUTPUT FORMAT:
+
+{
+	"total_number": total_number,
+	"is_work": [[is_work_{n, i} for n in 1,...,N] for i in 1,...,total_number]
+}

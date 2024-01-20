@@ -1,0 +1,61 @@
+PROBLEM TYPE: LP or MILP
+PROBLEM INFO:
+
+- A food is manufactured by refining raw oils and blending them together. 
+- The raw oils are either vegetable oils or non-vegetable oils. 
+- Each oil \var{i} may be purchased in month \var{m} for price \var{price_{i,m}}.
+- The final product sells at \var{sell_price} per ton.
+- Vegetable oils and non-vegetable oils require different production lines for refining. 
+- In any month, it is not possible to refine more than \var{max_vegetable_refining_per_month} tons of vegetable oils and more than \var{max_non_vegetable_refining_per_month} tons of non-vegetable oils. 
+- There is no loss of weight in the refining process, and the cost of refining may be ignored.
+- It is possible to store up to \var{storage_size} tons of each raw oil for use later. 
+- The cost of storage for both vegetable and non-vegetable oil is \var{storage_cost} per ton per month.
+- The final product cannot be stored, nor can refined oils be stored.
+- There is a technological restriction of hardness on the final product. 
+- In the units in which hardness is measured, this must lie between \var{max_hardness} and \var{min_hardness}.
+- The hardness product is computed by the weighted average of hardness of each oil.
+- The hardness of oil \var{i} is \var{hardness_{i}}.
+- At present, there are \var{init_amount} tons of each type of raw oil in storage. 
+- We can assume that there is a month "0" to model the inital amount.
+- It is required that at the end of the last month, we still have the same amout of storage as \var{init_amount}.
+- This means directly adding the constraint that the storage in the last month must be equal to \var{init_amount}.
+- The food may never be made up of more than three oils in any month.
+- If an oil is used in a month, at least \var{min_usage} tons must be used.
+- There are dependencies in the oil usage and \var{dependency_{i, j}} shows this relation
+- If \var{dependency_{i, j}} is 1, then when oil \var{i} is used, oil \var{j} must also be used
+
+
+INPUT FORMAT:
+
+{
+    "buy_price":[[price_{i, m} for i in 1,...,I] for m in 1,...,M],
+    "sell_price": sell_price,
+    "is_vegetable": [is_vegetable_{i} for i in 1,...,I],
+    "max_vegetable_refining_per_month": max_veg,
+    "max_non_vegetable_refining_per_month": max_non_veg,
+    "storage_size": storage_size,
+    "storage_cost": storage_cost,
+    "max_hardness": max_hardness,
+    "min_hardness": min_hardness,
+    "hardness": [hardness_{i} for i in 1,...,I],
+    "init_amount": init_amount,
+    "min_usage": min_usage,
+    "dependencies": [dependency_{i} for i in 1,...,I]
+}
+
+
+OBJECTIVE: What buying, storing and manufacturing policy should the company pursue in order to maximize profit?
+
+OUTPUT INFO: 
+
+- \var{buyquantity} represents the amount of buying quantity of each oil in each month
+- \var{refine} represents the amount of refined quantity of each oil in each month
+- \var{storage} represents the storage of each oil in each month
+ 
+OUTPUT FORMAT: 
+
+{
+    "buy": [[buyquantity_{i, m} for i in 1,...,I] for m in 1,...M],
+    "refine": [[refine_{i, m} for i in 1,...,I] for m in 1,...M],
+    "storage": [[storage_{i, m} for i in 1,...,I] for m in 1,...,M]
+} 

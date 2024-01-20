@@ -1,0 +1,29 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+
+- Consider a school district with \var{N} neighborhoods, \var{S} schools, and \var{G} grades at each school.
+- Each school \var{s} has a capacity of \var{capacity_{s,g}} for grade \var{g}. 
+- In each neighborhood \var{n}, the student population of grade \var{g} is \var{population_{n,g}}. 
+- Finally, the distance of school \var{s} from neighborhood \var{n} is \var{d_{i,j}}.
+
+INPUT FORMAT: 
+
+{
+    "capacity": [[capacity_{s,g} for g in 1, ..., G] for s in 1, ..., S],
+    "population": [[population_{n,g} for g in 1, ..., G] for n in 1, ..., N],
+    "distance": [[d_{n,s} for s in 1, ..., S] for n in 1, ..., N]
+}
+
+OBJECTIVE: We want to assign all students to schools, while minimizing the total distance traveled by all students. We may ignore the fact that numbers of students must be integers.
+
+OUTPUT INFO:
+- the output should show optimal \var{x_{n,s,g}} for all \var{n}, \var{s}, \var{g} (i.e., the number of students of grade \var{g} in neighborhood \var{n} assigned to school \var{s}).
+- the output should also include \var{total_distance}, the total distance traveled by all students.
+
+OUTPUT FORMAT:
+
+{
+    "assignment": [[[x_{n,s,g} for g in 1, ..., G] for s in 1, ..., S] for n in 1, ..., N],
+    "total_distance": total_distance
+}

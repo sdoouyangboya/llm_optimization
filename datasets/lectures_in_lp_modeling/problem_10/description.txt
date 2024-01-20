@@ -1,0 +1,29 @@
+PROBLEM TYPE: MILP
+PROBLEM INFO:
+
+- Before going on vacation you want to make floppy disk backups of important files. 
+- You have at your disposal several blank floppy disks with capacities of \var{capacity} GB. 
+- They are given the size of the files that you want to save.
+- Each file \var{j} has size \var{size_{j}}.
+- Assuming that you do not have any programs to compress the data and that you have enough floppy disks available for back up everything.
+
+INPUT FORMAT:
+
+{
+	"capacity": capacity,
+	"size": [size_{j} for j in 1,...,N]
+}
+
+OBJECTIVE: How to distribute these files on the floppy disks in order to minimize the number of floppy disks used.
+
+OUTPUT INFO:
+
+- \var{n_disks} represents the total number of floppy disks used
+- \var{whichdisk} represents on which disk each file is distributed. Its length is determined by \var{n_disks}
+
+OUTPUT FORMAT:
+
+{
+	"n_disks": n_disks,
+	"whichdisk": [disk_{j} for j in 1,...,N]
+}

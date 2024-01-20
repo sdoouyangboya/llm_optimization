@@ -1,0 +1,59 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO:
+
+- Consider a communication network consisting of \var{n} nodes.
+- Nodes are con­nected by communication links.
+- A link allowing one-way transmission from node \var{i} to node \var{j} is described by an ordered pair (\var{i},\var{j}). 
+- Let \var{A} be the set of all links. 
+- We assume that each link (\var{i},\var{j}) \in \var{A} can carry up to \var{U_{i,j}} bits per second. 
+- There is a positive cost \var{C_{i,j}} per bit transmitted along that link. 
+- Each node \var{k} generates data, at the rate of \var{B_{k,l}} bits per second, that have to be transmitted to node \var{l}, either through a direct link (\var{k}, \var{l}) or by tracing a sequence of links. 
+- We allow the data with the same origin and destination to be split and be transmitted along different paths.
+
+INPUT FORMAT:
+
+{
+    "links": [
+       {
+        "start": i,
+        "end": j,
+        "U": U_{i,j},
+        "C": C_{i,j},
+       }
+    ],
+    "data": [
+        {
+            "source": k,
+            "destination": l,
+            "rate": B_{k,l}
+        }
+    ]
+}
+
+
+OBJECTIVE: Find paths along which all data reach their intended destinations, while minimizing the total cost. 
+
+
+
+OUTPUT INFO:
+- \var{total_cost} represents the total cost of all the paths
+- \var{path_cost} represents the cost of the corresponding path
+- \var{path_flow} represents the flow going through the corresponding path
+
+OUTPUT FORMAT:
+
+{
+    "optimized_paths": {
+        "paths": [
+            {
+                "source": k,
+                "destination": l,
+                "route": [k, i_1, i_2, ..., l],
+                "path_flow": path_flow
+                "path_cost": path_cost
+            },
+            for id in 1, ..., m 
+        ],
+    "total_cost": "total_cost"
+}

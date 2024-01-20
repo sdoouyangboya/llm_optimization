@@ -1,0 +1,29 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO:
+
+- A firm produces \var{M} different goods using \var{N} different raw materials.
+- The firm has \var{available_{i}} of raw material \var{i} available.
+- Good \var{j} requires \var{req_{i,j}} units of material \var{i} per unit produced.
+- Good \var{j} results in a revenue of \var{price_j} per unit produced.
+
+
+INPUT FORMAT: 
+
+{
+    "available": [available_{i} for i in 1, ..., N]
+    "requirements": [[req_{i,j} for i in 1, ..., N] for j in 1, ..., M],
+    "prices": [price_{j} for j in 1, ..., M]
+}
+
+OBJECTIVE: How much of each good should the firm produce in order to maximize its total revenue?
+
+OUTPUT INFO:
+
+- the amount of each good produced \var{amount_{j}}.
+
+OUTPUT FORMAT:
+
+{
+    "amount": [amount_{j} for j in 1, ..., M]
+}

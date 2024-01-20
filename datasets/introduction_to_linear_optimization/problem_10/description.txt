@@ -1,0 +1,31 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+- A company must deliver \var{deliver_i} units of its product at the end of the \var{i}_th month.
+- Material produced during a month can be delivered either at the end of the same month or can be stored as inventory and delivered at the end of a subsequent month.
+- There is a storage cost of \var{storage_cost} dollars per month for each unit of product held in inventory. 
+- The year begins with zero inventory. 
+- If the company produces \var{x_i} units in month \var{i} and \var{x_{i+1}} units in month \var{i}+1, it incurs a cost of \var{switch_cost} |\var{x_{i+1}} - \var{x_i}|  dollars, reflecting the cost of switching to a new production level. 
+- Assume that inventory left at the end of the year has no value and does not incur any storage cost.
+- The company wants to minimize the total cost of the production and inventory schedule over the next \var{T} months.
+
+INPUT FORMAT: 
+
+{
+    "deliver": [deliver_i for i in 1, ..., T],
+    "storage_cost": storage_cost,
+    "switch_cost": switch_cost,
+}
+
+OBJECTIVE: Minimize the total cost of the production and inventory schedule over the whole period.
+
+OUTPUT INFO:
+
+- \var{x_i} is the number of units produced in month \var{i}.
+
+OUTPUT FORMAT:
+
+{
+    "x": [x_i for i in 1, ..., T],
+    "cost": cost,
+}

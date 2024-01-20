@@ -1,0 +1,29 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A small firm specializes in making some types of spare automobile parts. 
+- Each part is has to go through several shops 
+- The required worker-hours for part \var{k} in shop \var{s} is \var{time_{k, s}}.
+- The profit of part \var{k} is \var{profit_{k}}.
+- The capacity of shop \var{s} is \var{capacity_{s}} working hours.
+
+INPUT FORMAT:
+
+{
+	"time": [[time_{k, s} for s in 1,...,S] for k in 1,...,K],
+	"profit": [profit_{k} for k in 1,...,K],
+	"capacity": [capacity_{s} for s in 1,...,S]
+}
+
+
+OBJECTIVE: Formulate the problem of determining the quantities of each spare part to be made during the month so as to maximize profit.
+
+OUTPUT INFO:
+
+- \var{quantity} represents the amount of each spare part to be made
+
+OUTPUT FORMAT:
+
+{
+	"quantity": [quantity_{k} for k in 1,...,K]
+}

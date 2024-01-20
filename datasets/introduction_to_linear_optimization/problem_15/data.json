@@ -1,0 +1,12 @@
+{
+  "assemblyHour": [0.25, 0.3333],
+  "testingHour": [0.125, 0.3333],
+  "materialCost": [1.2, 0.9],
+  "maxAssembly": 10,
+  "maxTesting": 70,
+  "price": [9, 8],
+  "maxOvertimeAssembly": 50,
+  "overtimeAssemblyCost": 5,
+  "materialDiscount": 10,
+  "discountThreshold": 300
+}

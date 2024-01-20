@@ -1,0 +1,46 @@
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+
+- A state wants to plan its electricity capacity for the next \var{T} years. 
+- The state has a forecast of \var{demand_t} megawatts, presumed accurate, of the demand for electricity during year \var{t}.
+- The existing capacity, which is in oil-fired plants, that will not be retired and will be available during year \var{t}, is \var{oil_t}.
+- There are two alternatives for expanding electric capacity: coal­ fired or nuclear power plants.
+- There is a capital cost of \var{coal_cost} per megawatt of coal-fired capacity that becomes operational at the beginning of year \var{t}.
+- There is a capital cost of \var{nuke_cost} per megawatt of nuclear power capacity that becomes operational at the beginning of year \var{t}.
+- For various political and safety reasons, it has been decided that no more than \var{max_nuke}% of the total capacity should ever be nuclear (\var{max_nuke} is a number between 0 and 100).
+- Coal plants last for \var{coal_life} years, while nuclear plants last for \var{nuke_life} years.
+
+INPUT FORMAT: 
+
+{
+    "demand": [demand_t for t in 1, ..., T],
+    "oil_cap": [oil_t for t in 1, ..., T],
+    "coal_cost": coal_cost,
+    "nuke_cost": nuke_cost,
+    "max_nuke": max_nuke,
+    "coal_life": coal_life,
+    "nuke_life": nuke_life,
+}
+
+
+OBJECTIVE: What is the capacity expansion plan that results in the minimum cost?
+
+
+OUTPUT INFO:
+
+- the output should represent how much coal and nuclear capacity should be added in each year, and how much the total cost is.
+- the output should be a dictionary with three keys: "coal_cap_added", "nuke_cap_added", and "total_cost".
+- the value of "coal_cap_added" should be a list of the coal capacity added in each year.
+- the value of "nuke_cap_added" should be a list of the nuclear capacity added in each year.
+- the value of "total_cost" should be a single floating point number showing the total cost of the system.
+
+
+OUTPUT FORMAT:
+
+{
+    "coal_cap_added": [coal_t for t in 1, ..., T],
+    "nuke_cap_added": [nuke_t for t in 1, ..., T],
+    "total_cost": total_cost,
+}
+

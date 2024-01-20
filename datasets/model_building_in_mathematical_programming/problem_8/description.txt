@@ -1,0 +1,96 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A farmer wishes to plan production on his \var{all_space} acre farm over the next five years. 
+- At present, he has a herd of 120 cows. 
+- This is made up of \var{n_heifers} heifers and \var{n_milk} milk-producing cows. 
+- Each heifer needs \var{heifer_space} acre to support it and each dairy cow \var{cow_space} acre. 
+- A dairy cow produces an average of \var{cow_calve} calves per year. 
+- Half of these calves will be bullocks, which are sold almost immediately for an average of \var{price_bullock} each. 
+- The remaining heifers can be either sold almost immediately for \var{price_heifer} or reared to become milk-producing cows at two years old. 
+- It is intended that all dairy cows be sold at 12 years old for an average of \var{price_cow} each, although there will probably be an annual loss of \var{loss_heifer} per year among heifers and \var{loss_cow} among dairy cows. 
+- At present, there are 10 cows each aged from newborn to 11 years old. 
+- The decision of how many heifers to sell in the current year has already been taken and implemented.
+- The milk from a cow yields an annual revenue of \var{revenue_milk}. 
+- A maximum of \var{n_maxcow} cows can be housed at the present time. 
+- To provide accommodation for each cow beyond this number will entail a capital outlay of \var{cow_outlay} per cow. 
+- Each milk- producing cow requires \var{cow_grain} tons of grain and \var{cow_sugar} tons of sugar beet per year. 
+- Grain and sugar beet can both be grown on the farm. 
+- Each acre yields \var{sugar_per_acre} tons of sugar beet. 
+- Only \var{space_grain} acres are suitable for growing grain. 
+- They can be divided into groups.
+- Group \var{k} has space \var{graindivision_{k}} and yields \var{yield_{k}} tons per acre.
+- Grain can be bought for \var{buyprice_grain} per ton and sold for \var{sellprice_grain} per ton. 
+- Sugar beet can be bought for \var{buyprice_sugar} per ton and sold for \var{sellprice_sugar} per ton.
+- Each heifer requires \var{labour_heifers} hours of labour per year.
+- Each milk-producing cow requires \var{labour_cow} hours of labour per year.
+- Each acre put into grain requires \var{labour_grain} hours of labour per year.
+- Each acre put into sugar beet requires \var{labour_sugar} hours of labour per year.
+- There are also extra costs.
+- Each heifer requires \var{extra_heifers} per year.
+- Each milk-producing cow requires \var{extra_cow} per year.
+- Each acre put into grain requires \var{extra_grain} per year.
+- Each acre put into sugar beet requires \var{extra_sugar} per year.
+- Labour costs for the farm are at present \var{labour_cost} per year and provide \var{labour_hour} labour. 
+- Any labour needed above this will cost \var{extra_labour_cost} per hour.
+- Any capital expenditure would be financed by a 10-year loan at 15% annual interest. 
+- The interest and capital repayment would be paid in 10 equally sized yearly installments. 
+- In no year can the cash flow be negative. 
+- Finally, the farmer would neither wish to reduce the total number of dairy cows at the end of the five-year period by more than 50% nor wish to increase the number by more than 75%.
+
+
+INPUT FORMAT:
+
+{
+    "all_space": all_space,
+    "n_heifers": n_heifers,
+    "n_milk": n_milk,
+    "heifer_space": heifer_space,
+    "cow_space": cow_space,
+    "cow_calve": cow_calve,
+    "price_bullock": price_bullock,
+    "price_heifer": price_heifer,
+    "price_cow": price_cow,
+    "loss_heifer": loss_heifer,
+    "loss_cow": loss_cow,
+    "revenue_milk": revenue_milk,
+    "n_maxcow": n_maxhouse,
+    "cow_outlay": cow_outlay,
+    "cow_grain": cow_grain,
+    "cow_sugar": cow_sugar,
+    "sugar_per_acre": sugar_per_acre,
+    "space_grain": space_grain,
+    "graindivision": [graindivision_{k} for k in 1,...,K],
+    "yield": [yield_{k} for k in 1,...,K],
+    "buyprice_grain": buyprice_grain,
+    "sellprice_grain": sellprice_grain,
+    "buyprice_sugar": buyprice_sugar,
+    "sellprice_sugar": sellprice_sugar,
+    "labour_heifers": labour_heifers,
+    "labour_cow": labour_cow,
+    "labour_grain": labour_grain,
+    "labour_sugar": labour_sugar,
+    "extra_heifers": extra_heifers,
+    "extra_cow": extra_cow,
+    "extra_grain": extra_grain,
+    "extra_sugar": extra_sugar,
+    "labour_cost": labour_cost,
+    "labour_hour": labour_hour,
+    "extra_labour_cost": extra_labour_cost
+}
+
+OBJECTIVE: How should the farmer operate over the next five years to maximize profit?
+
+OUTPUT INFO:
+
+- \var{sellheifer} represents the amount of heifer to sell in future five years
+- \var{spacegrain} represents how much space should be used for grain each year
+- \var{spacesugar} represents how much space should be used for sugar beet each year
+
+OUTPUT FORMAT:
+
+{
+    "sellheifer": [sellheifer_{i} for i = 1,...,5]
+    "spacegrain": [spacegrain_{i} for i = 1,...,5]
+    "spacesugar": [spacesugar_{i} for i = 1,...,5]
+}

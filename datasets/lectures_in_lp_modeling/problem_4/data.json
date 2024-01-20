@@ -1,0 +1,6 @@
+{
+	"capacity": 10,
+	"holding_cost": 2,
+	"price": [1, 2, 100],
+	"cost": [100, 1, 100]
+}

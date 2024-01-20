@@ -1,0 +1,29 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- A quantity y is known to depend on another quantity x. A set of corresponding values has been collected for x and y and is presented.
+- The \var{k}-th y value takes \var{y_{k}} and the \var{k}-th x value takes \var{x_{k}}.
+
+INPUT FORMAT:
+
+{
+    "y": [y_{k} for k = 1,...,K],
+    "x": [x_{k} for k = 1,...,K]
+}
+
+
+OBJECTIVE: Fit the ‘best’ quadratic curve y = c * x^2 + b * x + a to this set of data points. The objective is to minimize the sum of absolute deviations of each observed value of y from the value predicted by the quadratic relationship.
+
+OUTPUT INFO:
+
+- \var{quadratic} represents the coefficient of quadratic term
+- \var{linear} represents the coefficient of linear term
+- \var{constant} represents the coefficient of constant
+
+OUTPUT FORMAT:
+
+{
+    "quadratic": quadratic,
+    "linear": linear,
+    "constant": constant
+}

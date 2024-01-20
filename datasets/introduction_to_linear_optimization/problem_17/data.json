@@ -1,0 +1,9 @@
+{
+  "bought": [100, 150, 80],
+  "buyPrice": [50, 40, 30],
+  "currentPrice": [60, 35, 32],
+  "futurePrice": [65, 44, 34],
+  "transactionRate": 1.0,
+  "taxRate": 15.0,
+  "K": 5000
+}

@@ -1,0 +1,10 @@
+{
+    "n_mines": 4,
+    "n_maxwork": 3,
+    "royalty": [5e+06, 4e+06, 4e+06, 5e+06],
+    "limit": [2e+06, 2.5e+06, 1.3e+06, 3e+06],
+    "quality": [1.0, 0.7, 1.5, 0.5],
+    "requiredquality": [0.9, 0.8, 1.2, 0.6, 1.0],
+    "price": 10,
+    "discount": 0.1
+}

@@ -1,0 +1,36 @@
+PROBLEM TYPE: MIP
+PROBLEM INFO:
+
+- A number of power stations are committed to meeting the following electricity load demands over a day.
+- Period \var{t} of a day has demand \var{demand_{t}}.
+- There are several types of generating unit available: the number of \var{k}-th type units is \var{num_{k}}.
+- Type \var{k} generator has to work between a minimum level \var{minlevel_{k}} and a maximum level \var{maxlevel_{k}}. 
+- There is an hourly cost of running each type \var{k} generator at minimum level \var{runcost_{k}}. 
+- In addition, there is an extra hourly cost \var{extracost_{k}} for each megawatt at which a type \var{k} unit is operated above the minimum level. 
+- Starting up a type \var{k} generator also involves a cost \var{startcost_{k}}.
+
+
+INPUT FORMAT:
+
+{
+    "demand": [demand_{t} for t in 1,...,T],
+    "num": [num_{k} for in 1,...,K],
+    "minlevel": [minlevel_{k} for in 1,...,K],
+    "maxlevel": [minlevel_{k} for in 1,...,K],
+    "runcost": [runcost_{k} for in 1,...,K],
+    "extracost": [extracost_{k} for in 1,...,K],
+    "startcost": [startcost_{k} for in 1,...,K]
+}
+
+
+OBJECTIVE: Which generators should be working in which periods of the day to minimize total cost?
+
+OUTPUT INFO:
+
+- \var{numon} represents the number of generators of each type that are on in each period
+
+OUTPUT FORMAT:
+
+{
+    "numon": [[numon_{k, t} for t in 1,...,T] for k in 1,...,K]
+}

@@ -1,0 +1,27 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- We assume that there are available at the market different foods and that the food \var{k} sells at a price \var{price_{k}} per unit. 
+- In addition there are several basic nutritional ingredients and, to achieve a balanced diet, each individual must receive at least \var{demand_{m}} units of nutrient \var{m} per day. 
+- Finally, we assume that each unit of food \var{k} contains \var{nutri_{k, m}} units of nutrition \var{m}
+
+INPUT FORMAT:
+
+{
+	"price": [price_{k} for k in 1,...,K],
+	"demand": [demand_{m} for m in 1,...,M],
+	"nutrition": [[nutri_{k, m} for m in 1,...,M] for k in 1,...,K]
+}
+
+
+OBJECTIVE: We want to minimize the total prices of the foods to purchase.
+
+OUTPUT INFO:
+
+- \var{quantity} represents the quantity of each food to purchase
+
+OUTPUT FORMAT:
+
+{
+	"quantity": [quantity_{k} for k in 1,...,K]
+}

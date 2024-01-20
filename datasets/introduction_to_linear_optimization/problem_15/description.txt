@@ -1,0 +1,42 @@
+PROBLEM TYPE: MILP
+
+PROBLEM INFO: 
+- A company produces \var{N} kinds of products. 
+- A product of the \var{i}-th type requires \var{assemblyHour_i} hours of assembly labor, \var{testingHour_i} hours of testing, and \var{materialCost_i} worth of raw materials (in $).
+- Given the current personnel of the company, there can be at most \var{maxAssembly} hours of assembly labor and \var{maxTesting} hours of testing, each day.
+- Product of the \var{i}-th type has a price of \var{price_i} dollars.
+- The company can schedule up tp \var{maxOvertimeAssembly} hours of overtime assembly labor can be sched­uled, at a cost of \var{overtimeAssemblyCost} per hour.
+- Suppose that the raw material supplier provides a \var{materialDiscount}% discount if the daily bill is above \var{discountThreshold} dollars (\var{materialDiscount} is a number between 0 and 100).
+
+INPUT FORMAT: 
+
+{
+    "assemblyHour": [assemblyHour_i for i in 1, ..., N]
+    "testingHour": [testingHour_i for i in 1, ..., N],
+    "materialCost": [materialCost_i for i in 1, ..., N],
+    "maxAssembly": maxAssembly
+    "maxTesting": maxTesting,
+    "price": [price_i for i in 1, ..., N],
+    "maxOvertimeAssembly": maxOvertimeAssembly,
+    "overtimeAssemblyCost": overtimeAssemblyCost,
+    "materialDiscount": materialDiscount,
+    "discountThreshold": discountThreshold
+}
+
+OBJECTIVE: We want to maximize the daily profit of the company, which is the total revenue minus the total cost.
+
+OUTPUT INFO: 
+
+- \var{dailyProfit} shows the daily profit of the company 
+- \var{unitsProduced_i} shows the number of units of the \var{i}-th product produced
+- \var{overtimeAssembly} shows the number of hours of overtime assembly labor scheduled
+- \var{materialBought} shows the amount of raw materials bought
+
+OUTPUT FORMAT:
+
+{
+    "dailyProfit": dailyProfit,
+    "unitsProduced": [unitsProduced_i for i in 1, ..., N],
+    "overtimeAssembly": overtimeAssembly,
+    "materialBought": materialBought
+}

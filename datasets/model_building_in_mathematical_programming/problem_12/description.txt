@@ -1,0 +1,36 @@
+PROBLEM TYPE: MIP
+PROBLEM INFO:
+
+- A large company wishes to move some of its departments out of London. 
+- There are benefits to be derived from doing this (cheaper housing, government incentives, easier recruitment, etc.), which have been costed. 
+- Also, however, there will be greater costs of communication between departments. 
+- These have also been costed for all possible locations of each department.
+- The company comprises several departmens. 
+- There are several possible cities for relocation, or a department may be kept in London. 
+- None of these cities (including London) may be the location for more than three of the departments.
+- Benefits for department \var{k} from relocation at city \var{l} is \var{benefit_{k, l}} (in thousands of pounds).
+- Communication costs are of the form \var{communication_{k, j}} * \var{cost_{l, m}}.
+- \var{communication_{k, j}} is the quantity of communication between department \var{k} and city \var{j}.
+- \var{cost_{l, m}} is the unit cost of communication between city \var{l} and city \var{m}.
+
+
+INPUT FORMAT:
+
+{
+	"benefit": [[benefit_{k, l} for l in 1,...,L] for k in 1,...,K],
+	"communication": [[communication_{k, j} for j in 1,...,K] for k in 1,...,K],
+	"cost": [[cost_{l, m} for m in 1,...,L] for l in 1,...,L],
+}
+
+
+OBJECTIVE: Where should each department be located so as to minimize overall yearly cost?
+
+OUTPUT INFO:
+
+- \var{islocated_{k, l}} represents whether department \var{k} is relocated at city \var{l}
+
+OUTPUT FORMAT:
+
+{
+    "islocated": [[islocated_{k, l} for l in 1,...,L] for k in 1,...K],
+}

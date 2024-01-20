@@ -1,0 +1,33 @@
+
+PROBLEM TYPE: LP
+
+PROBLEM INFO: 
+- Consider a set \var{P} described by linear inequality constraints, that is:
+ \var{P} = {\var{x} \in R^\var{N} | \var{a_i}^T x <= \var{b_i} , i = 1, ..., m}.
+
+where \var{a_i} \in R^\var{N} and \var{b_i} \in R
+
+- A ball with center \var{y} in R^\var{N} and radius \var{r} is defined as the set of all points within (Euclidean) distance \var{r} from \var{y}.
+
+
+INPUT FORMAT: 
+
+{
+    "A": [[a_i_j for j in 1, ..., n] for i in 1, ..., m],
+    "b": [b_i for i in 1, ..., m]
+}
+
+OBJECTIVE: We are interested in finding a ball with the largest possible radius, which is entirely contained within the set \var{P} (The center of such a ball is called the Chebychev center of \var{P}.
+
+OUTPUT INFO:
+
+- center (list): The center of the ball as a list of floats of length \var{N}
+- radius (float): The radius of the ball as a float
+
+OUTPUT FORMAT:
+
+{
+    "center": [y_j for j in 1, ..., n],
+    "radius": r
+}
+

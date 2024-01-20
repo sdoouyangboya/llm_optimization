@@ -1,0 +1,189 @@
+COT: True
+Debug: False
+Test: False
+Human: False
+
+------------------------
+User says: 
+------------------------
+
+You are an operations analyst and expert mathematical modeller AI bot.
+Your task is to formulate and solve the given optimization problem as a LP. Please read the problem information, input format, and objective carefully and provide a detailed mathematical formulation.
+
+### PROBLEM INFORMATION:
+
+
+- A firm produces \var{M} different goods using \var{N} different raw materials.
+- The firm has \var{available_{i}} of raw material \var{i} available.
+- Good \var{j} requires \var{req_{i,j}} units of material \var{i} per unit produced.
+- Good \var{j} results in a revenue of \var{price_j} per unit produced.
+
+
+
+### INPUT FORMAT:
+
+
+{
+    "available": [available_{i} for i in 1, ..., N]
+    "requirements": [[req_{i,j} for i in 1, ..., N] for j in 1, ..., M],
+    "prices": [price_{j} for j in 1, ..., M]
+}
+
+
+- Variables enclosed in [ ] represent lists of values.
+- Names enclosed in quotes (") represent keys and are identical to those in the data file.
+- All other items are variables as described in the problem description and should be replaced with their actual values from the data file.
+
+### OBJECTIVE: 
+
+How much of each good should the firm produce in order to maximize its total revenue?
+
+### OUTPUT INFORMATION:
+
+
+- the amount of each good produced \var{amount_{j}}.
+
+
+### OUTPUT FORMAT:
+
+
+{
+    "amount": [amount_{j} for j in 1, ..., M]
+}
+
+
+### INSTRUCTIONS:
+1. Clearly define the decision variables.
+2. Formulate the objective function precisely.
+3. List all the constraints, ensuring they are complete and non-redundant.
+4. Ensure the formulation is coherent, logical, and solvable.
+5. Provide any necessary explanations or clarifications for your formulation.
+
+
+Please respond with a well-structured mathematical formulation of the given optimization problem, adhering to the instructions and format provided above.
+
+
+------------------------
+gpt-4 says: 
+------------------------
+
+### DECISION VARIABLES:
+
+Let \(x_j\) represent the amount of good \(j\) that the firm produces, for \(j = 1, ..., M\).
+
+### OBJECTIVE FUNCTION:
+
+The firm wants to maximize its total revenue. The revenue from each good is the price of the good times the amount of the good produced. Therefore, the objective function is:
+
+Maximize \(Z = \sum_{j=1}^{M} price_j * x_j\)
+
+### CONSTRAINTS:
+
+The firm cannot use more raw material than it has available. The amount of raw material \(i\) used to produce good \(j\) is the requirement of raw material \(i\) per unit of good \(j\) times the amount of good \(j\) produced. Therefore, the constraints are:
+
+\(\sum_{j=1}^{M} req_{i,j} * x_j \leq available_i\), for \(i = 1, ..., N\)
+
+The firm cannot produce a negative amount of any good. Therefore, the non-negativity constraints are:
+
+\(x_j \geq 0\), for \(j = 1, ..., M\)
+
+### MATHEMATICAL FORMULATION:
+
+Maximize \(Z = \sum_{j=1}^{M} price_j * x_j\)
+
+Subject to:
+
+\(\sum_{j=1}^{M} req_{i,j} * x_j \leq available_i\), for \(i = 1, ..., N\)
+
+\(x_j \geq 0\), for \(j = 1, ..., M\)
+
+This linear programming problem maximizes the total revenue of the firm by determining the optimal amount of each good to produce, given the available raw materials and the requirements of each good. The constraints ensure that the firm does not use more raw material than it has available and does not produce a negative amount of any good.
+
+------------------------
+User says: 
+------------------------
+
+Now, please generate a Python code using gurobi to solve the formulated optimization problem. The code will read the problem data from a file named "data.json" and should save the output in a file named "output.json".
+
+
+OUTPUT INFO: 
+
+- the amount of each good produced \var{amount_{j}}.
+
+
+your code should save the output as a file named "output.json" with indents of 4 spaces in this format:
+
+
+{
+    "amount": [amount_{j} for j in 1, ..., M]
+}
+
+when writing the code, remember that
+- Write your code in PEP 8 Python format
+- if problem data is presented in percentage (%), do not forget to preprocess it
+- Use 'model = gp.Model()' to define the Gurobi model object
+- all keys that you read from the data file are strings and not integers
+- try to keep the code for adding different constraints separate to avoid confusion
+- ONLY generate the code, and don't generate anything else! I've already installed the necessary libraries.
+- Wrap the code using markdown ```
+- Write code in Python PEP 8 style
+- Use 'model' as the name of the gurobi model object
+
+
+
+### INSTRUCTIONS:
+1. **Read Data**: Read all necessary data from "data.json". Remember, all keys in the data file are strings.
+2. **Solver Instructions**: 
+- Write your code in PEP 8 Python format
+- if problem data is presented in percentage (%), do not forget to preprocess it
+- Use 'model = gp.Model()' to define the Gurobi model object
+3. **Code Structure**: Structure your code clearly, keeping the code for adding different constraints separate to maintain readability and avoid confusion.
+4. **Output File**: Save the results in "output.json" using the specified format.
+5. **Libraries**: Do not include installation of libraries; assume all necessary libraries are already installed.
+6. **Markdown**: Wrap the generated code using markdown triple backticks (```) to maintain format.
+
+Take a deep breath and work on this problem step by step.
+
+------------------------
+gpt-4 says: 
+------------------------
+
+Here is the Python code using Gurobi to solve the formulated optimization problem.
+
+```python
+import json
+from gurobipy import Model, GRB
+
+# Step 1: Read Data
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+available = data['available']
+requirements = data['requirements']
+prices = data['prices']
+
+# Step 2: Create a model
+model = Model()
+
+# Step 3: Create variables
+x = model.addVars(len(prices), lb=0, vtype=GRB.CONTINUOUS)
+
+# Step 4: Set objective
+model.setObjective(sum(prices[j]*x[j] for j in range(len(prices))), GRB.MAXIMIZE)
+
+# Step 5: Add constraints
+for i in range(len(available)):
+    model.addConstr(sum(requirements[j][i]*x[j] for j in range(len(prices))) <= available[i])
+
+# Step 6: Optimize model
+model.optimize()
+
+# Step 7: Retrieve results
+amount = [x[j].x for j in range(len(prices))]
+
+# Step 8: Save results
+with open('output.json', 'w') as file:
+    json.dump({"amount": amount}, file, indent=4)
+```
+
+This Python code reads the problem data from "data.json", formulates and solves the optimization problem using Gurobi, and saves the output in "output.json". The output is a list of the amount of each good produced.

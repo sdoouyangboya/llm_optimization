@@ -1,0 +1,10 @@
+{
+  "cash": 3000,
+  "hour": [2, 6],
+  "cost": [3, 2],
+  "price": [6, 5],
+  "investPercentage": [0.4, 0.3],
+  "upgradeHours": 2000,
+  "upgradeCost": 400,
+  "availableHours": 2000
+}

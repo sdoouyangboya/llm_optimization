@@ -1,0 +1,44 @@
+PROBLEM TYPE: LP
+PROBLEM INFO:
+
+- An engineering factory makes several products on the machines, and the number of machine \var{m} the factory has is \var{num_{m}}.
+- Each product \var{k} yields \var{profit_{k}} to profit (defined as £/unit selling price minus cost of raw materials).
+- The unit production times (hours) product \var{k} requires on machine \var{m} is \var{time_{k, m}}
+- In the present month (January) and several subsequent months, certain machines will be down for maintenance.
+- In month \var{i}, the number of machine \var{m} that will be down is \var{maintain_{i, m}}.
+- There are marketing limitations on each product in each month. 
+- The limitation of product \var{k} in month \var{i} is \var{limit_{k, i}}.
+- It is possible to store up to 100 of each product at a time at a cost of \var{store_price} per unit per month. 
+- There are no stocks at present, but we should have a stock of \var{keep_quantity} of each type of product at the end of subsequent months.
+- The factory works six days a week with \var{n_workhours} hours each day. 
+- No sequencing problems need to be considered.
+- We can assume that a month has 24 days for convenience.
+
+INPUT FORMAT:
+
+{
+    "num_machines": [num_{m} for m in 1,...,M],
+    "profit": [profit_{k} for k in 1,...K],
+    "time": [[time_{k, m} for m in 1,...,M] for k in 1,...,K],
+    "maintain": [[maintain_{i, m} for m in 1,...,M] for i in 1,...,I],
+    "limit": [[limit_{k, i} for i in 1,...,I] for k in 1,...,K],
+    "store_price": store_price,
+    "keep_quantity": keep_quantity,
+    "n_workhours": n_workhours
+}
+
+OBJECTIVE: What selling, storing and manufacturing policy should the company pursue in order to maximize profit?
+
+OUTPUT INFO:
+
+- \var{sell} represents the amount of selling quantity of each product in each month
+- \var{manufacture} represents the amount of manufactured products in each month
+- \var{storage} represents the storage of each product in each month
+
+OUTPUT FORMAT:
+
+{
+    "sell": [[sell_{k, i} for k in 1,...,K] for i in 1,...I],
+    "manufacture": [[manufacture_{k, i} for k in 1,...,K] for i in 1,...I],
+    "storage": [[storage_{k, i} for k in 1,...,K] for i in 1,...,I]
+}
